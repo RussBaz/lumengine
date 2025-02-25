@@ -170,7 +170,7 @@ public:
     template<typename U>
     T& add(U&& value) {
         if (m_first_empty < m_data.size()) {
-            m_data[m_first_empty] = std::forward<U>(value);
+            m_data[m_first_empty].emplace(std::forward<U>(value));
             ++m_size;
             updateFirstEmpty(m_first_empty + 1);
             return m_data[m_first_empty - 1].value();

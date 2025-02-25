@@ -25,10 +25,13 @@ let package = Package(
         ),
         .target(
             name: "cxxLumengine",
+            publicHeadersPath: "asio/include",
             cxxSettings: [
                 .headerSearchPath("asio/include"),
+                .headerSearchPath("include"),
+                .headerSearchPath("."),
                 .define("ASIO_STANDALONE"),
-                .unsafeFlags(["-std=c++20", "-v"])
+                .unsafeFlags(["-std=c++20"])
             ]
         ),
         .testTarget(

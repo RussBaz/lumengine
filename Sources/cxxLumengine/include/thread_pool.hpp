@@ -222,37 +222,37 @@ public:
         return !m_workloads.empty() || !m_running_servers.empty();
     }
 
-    // Wait for all current workloads to complete
-    void wait_for_completion() {
-        std::promise<void> completion_promise;
-        const auto completion_future = completion_promise.get_future();
+    // // Wait for all current workloads to complete
+    // void wait_for_completion() {
+    //     std::promise<void> completion_promise;
+    //     const auto completion_future = completion_promise.get_future();
 
-        // Create a timer that we'll reuse
-        auto timer = std::make_shared<asio::steady_timer>(m_io_context);
+    //     // Create a timer that we'll reuse
+    //     auto timer = std::make_shared<asio::steady_timer>(m_io_context);
         
-        // Create the check function
-        std::function<void()> check_completion;
-        check_completion = [this, timer, &check_completion, completion_promise = std::move(completion_promise)] mutable {
-            post(m_cleanup_strand, [this, timer, &check_completion, completion_promise = std::move(completion_promise)] mutable {
-                remove_completed_workloads();
-                if (!has_active_tasks()) {
-                    completion_promise.set_value();
-                } else {
-                    timer->expires_after(std::chrono::milliseconds(100));
-                    timer->async_wait([this, timer, &check_completion, completion_promise = std::move(completion_promise)]
-                        (const std::error_code&) mutable {
-                            check_completion();
-                    });
-                }
-            });
-        };
+    //     // Create the check function
+    //     std::function<void()> check_completion;
+    //     check_completion = [this, timer, &check_completion, completion_promise = std::move(completion_promise)]() mutable {
+    //         post(m_cleanup_strand, [this, timer, &check_completion, completion_promise = std::move(completion_promise)]() mutable {
+    //             remove_completed_workloads();
+    //             if (!has_active_tasks()) {
+    //                 completion_promise.set_value();
+    //             } else {
+    //                 timer->expires_after(std::chrono::milliseconds(100));
+    //                 timer->async_wait([this, timer, &check_completion, completion_promise = std::move(completion_promise)]
+    //                     (const std::error_code&) mutable {
+    //                         check_completion();
+    //                 });
+    //             }
+    //         });
+    //     };
 
-        // Start the first check
-        check_completion();
+    //     // Start the first check
+    //     check_completion();
         
-        // Wait for completion
-        completion_future.wait();
-    }
+    //     // Wait for completion
+    //     completion_future.wait();
+    // }
 };
 
 #endif // THREAD_POOL_HPP
