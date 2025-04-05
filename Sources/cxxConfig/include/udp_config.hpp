@@ -1,0 +1,4 @@
+#ifndef LC_UPD_CONFIG_HPP
+#define LC_UPD_CONFIG_HPP
+
+#endif // LC_UPD_CONFIG_HPP

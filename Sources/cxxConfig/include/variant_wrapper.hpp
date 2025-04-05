@@ -1,9 +1,6 @@
-//
-// Created by Ruslan Bazhenov on 06/02/2025.
-//
+#ifndef LC_VARIANT_WRAPPER_HPP
+#define LC_VARIANT_WRAPPER_HPP
 
-#ifndef VARIANT_WRAPPER_HPP
-#define VARIANT_WRAPPER_HPP
 #include <optional>
 #include <variant>
 
@@ -50,4 +47,4 @@ public:
     }
 };
 
-#endif //VARIANT_WRAPPER_HPP
+#endif // LC_VARIANT_WRAPPER_HPP

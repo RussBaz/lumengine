@@ -1,12 +1,9 @@
-//
-// Created by Ruslan Bazhenov on 08/02/2025.
-//
-
-#ifndef BUFFER_HPP
-#define BUFFER_HPP
+#ifndef LC_BUFFER_HPP
+#define LC_BUFFER_HPP
 
 #include <cstddef>
 #include <string>
+
 class Buffer;
 using BufferPtr = std::shared_ptr<Buffer>;
 class Buffer final {
@@ -120,4 +117,4 @@ public:
     }
 };
 
-#endif // BUFFER_HPP
+#endif // LC_BUFFER_HPP

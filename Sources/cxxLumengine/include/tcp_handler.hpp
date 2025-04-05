@@ -1,29 +1,13 @@
-//
-// Created by Ruslan Bazhenov on 16/02/2025.
-//
-
-#ifndef TCP_HANDLER_HPP
-#define TCP_HANDLER_HPP
+#ifndef LE_TCP_HANDLER_HPP
+#define LE_TCP_HANDLER_HPP
 
 #include <cxxAsio.hpp>
-#include "buffer.hpp"
+#include <cxxConfig.hpp>
+// #include <handlers-Swift.h>
+
 #include "custom_error_code.hpp"
 #include "swift_function_wrapper.hpp"
-#include "variant_wrapper.hpp"
 #include "sparse_vector.hpp"
-
-class TcpSession;
-class TcpHandler;
-
-struct TCPReadCommand {};
-struct TCPWriteCommand {
-    Buffer buffer;
-};
-struct TCPCloseCommand {};
-using TCPCommand = std::variant<TCPReadCommand, TCPWriteCommand, TCPCloseCommand>;
-using TCPCommandVariant = VariantWrapper<TCPCommand>;
-using TcpSessionPtr = std::shared_ptr<TcpSession>;
-using TcpHandlerPtr = std::shared_ptr<TcpHandler>;
 
 struct TcpConfig {
     uint read_buffer_size { 16 * 1024 };
@@ -111,7 +95,7 @@ public:
         }
     }
 
-    asio::ip::tcp::socket& socket() {
+    [[nodiscard]] asio::ip::tcp::socket& socket() {
         return m_socket;
     }
 
@@ -160,7 +144,7 @@ public:
         stop();
     }
 
-    int port() const {
+    [[nodiscard]] int port() const {
         return m_port;
     }
 
@@ -178,4 +162,4 @@ public:
     }
 };
 
-#endif //TCP_HANDLER_HPP
+#endif //LE_TCP_HANDLER_HPP

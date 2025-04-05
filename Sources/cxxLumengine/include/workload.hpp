@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 06/02/2025.
-//
-
-#ifndef WORKLOAD_HPP
-#define WORKLOAD_HPP
+#ifndef LE_WORKLOAD_HPP
+#define LE_WORKLOAD_HPP
 
 #include "swift_function_wrapper.hpp"
 #include "variant_wrapper.hpp"
@@ -70,4 +66,4 @@ struct Workload {
 
 using WorkloadPtr = std::shared_ptr<Workload>;
 
-#endif //WORKLOAD_HPP
+#endif //LE_WORKLOAD_HPP

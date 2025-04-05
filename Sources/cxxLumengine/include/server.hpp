@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 22/02/2025.
-//
-
-#ifndef SERVER_HPP
-#define SERVER_HPP
+#ifndef LE_SERVER_HPP
+#define LE_SERVER_HPP
 
 #include <cxxAsio.hpp>
 #include "tcp_handler.hpp"
@@ -87,4 +83,4 @@ public:
     }
 };
 
-#endif //SERVER_HPP
+#endif //LE_SERVER_HPP

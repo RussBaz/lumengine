@@ -1,9 +1,6 @@
-//
-// Created by Ruslan Bazhenov on 06/02/2025.
-//
+#ifndef LE_SWIFT_FUNCTION_WRAPPER_HPP
+#define LE_SWIFT_FUNCTION_WRAPPER_HPP
 
-#ifndef SWIFT_FUNCTION_WRAPPER_HPP
-#define SWIFT_FUNCTION_WRAPPER_HPP
 #include <functional>
 #include <string>
 
@@ -129,4 +126,4 @@ struct SwiftFunctionWrapper<void, void> {
     }
 };
 
-#endif //SWIFT_FUNCTION_WRAPPER_HPP
+#endif //LE_SWIFT_FUNCTION_WRAPPER_HPP

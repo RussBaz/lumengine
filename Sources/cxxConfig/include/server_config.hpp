@@ -1,0 +1,4 @@
+#ifndef LC_SERVER_CONFIG_HPP
+#define LC_SERVER_CONFIG_HPP
+
+#endif // LC_SERVER_CONFIG_HPP

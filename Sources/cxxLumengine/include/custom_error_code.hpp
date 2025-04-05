@@ -1,9 +1,5 @@
-//
-// Created by RussBaz on 20/02/2025.
-//
-
-#ifndef CUSTOM_ERROR_CODE_HPP
-#define CUSTOM_ERROR_CODE_HPP
+#ifndef LE_CUSTOM_ERROR_CODE_HPP
+#define LE_CUSTOM_ERROR_CODE_HPP
 
 #include <string>
 #include <cerrno>
@@ -74,4 +70,4 @@ public:
 template <>
 struct std::is_error_code_enum<CustomErrorCode> : true_type {};
 
-#endif // CUSTOM_ERROR_CODE_HPP
+#endif // LE_CUSTOM_ERROR_CODE_HPP

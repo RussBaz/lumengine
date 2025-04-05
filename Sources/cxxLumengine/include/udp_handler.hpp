@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 16/02/2025.
-//
-
-#ifndef UDP_HANDLER_HPP
-#define UDP_HANDLER_HPP
+#ifndef LE_UDP_HANDLER_HPP
+#define LE_UDP_HANDLER_HPP
 
 #include <cxxAsio.hpp>
 #include "buffer.hpp"
@@ -89,7 +85,7 @@ public:
         m_read_buffer { config.read_buffer_size },
         m_port { port } {}
 
-    int port() const {
+    [[nodiscard]] int port() const {
         return m_port;
     }
 
@@ -104,4 +100,4 @@ public:
     }
 };
 
-#endif //UDP_HANDLER_HPP
+#endif //LE_UDP_HANDLER_HPP

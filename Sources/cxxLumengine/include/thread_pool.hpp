@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 07/02/2025.
-//
-
-#ifndef THREAD_POOL_HPP
-#define THREAD_POOL_HPP
+#ifndef LE_THREAD_POOL_HPP
+#define LE_THREAD_POOL_HPP
 
 #include <cxxAsio.hpp>
 #include <vector>
@@ -160,8 +156,8 @@ class ThreadPool final {
             std::move(workload),
             schedule,
             m_running_servers,
-            [this] { 
-                post(m_cleanup_strand, [this] { 
+            [this] {
+                post(m_cleanup_strand, [this] {
                     remove_completed_workloads();
                 });
             }
@@ -217,6 +213,10 @@ public:
         schedule_workload(std::move(workload), VariantWrapper<ExecuteSchedule> { ExecuteAfter { delay }});
     }
 
+    static std::shared_ptr<ThreadPool> create_thread_pool(std::size_t num_threads) {
+        return std::make_shared<ThreadPool>(num_threads);
+    }
+
     // Check if there are any active workloads or servers
     [[nodiscard]] bool has_active_tasks() const {
         return !m_workloads.empty() || !m_running_servers.empty();
@@ -229,7 +229,7 @@ public:
 
     //     // Create a timer that we'll reuse
     //     auto timer = std::make_shared<asio::steady_timer>(m_io_context);
-        
+
     //     // Create the check function
     //     std::function<void()> check_completion;
     //     check_completion = [this, timer, &check_completion, completion_promise = std::move(completion_promise)]() mutable {
@@ -249,10 +249,12 @@ public:
 
     //     // Start the first check
     //     check_completion();
-        
+
     //     // Wait for completion
     //     completion_future.wait();
     // }
 };
 
-#endif // THREAD_POOL_HPP
+using ThreadPoolPtr = std::shared_ptr<ThreadPool>;
+
+#endif // LE_THREAD_POOL_HPP

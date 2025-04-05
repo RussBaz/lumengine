@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 07/02/2025.
-//
-
-#ifndef CUSTOM_TERMINATE_HANDLER_HPP
-#define CUSTOM_TERMINATE_HANDLER_HPP
+#ifndef LE_CUSTOM_TERMINATE_HANDLER_HPP
+#define LE_CUSTOM_TERMINATE_HANDLER_HPP
 
 #include <iostream>
 #include <exception>
@@ -34,4 +30,4 @@ inline void initialise_terminate_handler() {
     std::set_terminate(custom_terminate_handler);
 }
 
-#endif // CUSTOM_TERMINATE_HANDLER_HPP
+#endif // LE_CUSTOM_TERMINATE_HANDLER_HPP

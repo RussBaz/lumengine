@@ -1,9 +1,5 @@
-//
-// Created by Ruslan Bazhenov on 20/02/2025.
-//
-
-#ifndef SPARSE_VECTOR_HPP
-#define SPARSE_VECTOR_HPP
+#ifndef LE_SPARSE_VECTOR_HPP
+#define LE_SPARSE_VECTOR_HPP
 
 #include <vector>
 #include <optional>
@@ -307,4 +303,4 @@ public:
     }
 };
 
-#endif //SPARSE_VECTOR_HPP
+#endif //LE_SPARSE_VECTOR_HPP

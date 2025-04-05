@@ -4,6 +4,10 @@ import PackageDescription
 
 let package = Package(
     name: "lumengine",
+    platforms: [
+        .macOS(.v14),
+        .iOS(.v17),
+    ],
     products: [
         .library(
             name: "lumengine",
@@ -20,11 +24,25 @@ let package = Package(
                 .define("ASIO_STANDALONE"),
             ]
         ),
+        .target(
+            name: "cxxConfig"
+        ),
+        .target(
+            name: "handlers",
+            dependencies: [
+                "cxxConfig"
+            ],
+            swiftSettings: [
+                .interoperabilityMode(.Cxx),
+            ],
+        ),
         // Custom CPP server implementation that uses Asio under the hood
         .target(
             name: "cxxLumengine",
             dependencies: [
                 "cxxAsio",
+                "cxxConfig",
+                "handlers"
             ]
         ),
         .target(
