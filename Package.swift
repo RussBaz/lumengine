@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.1
 
 import PackageDescription
 
@@ -24,25 +24,11 @@ let package = Package(
                 .define("ASIO_STANDALONE"),
             ]
         ),
-        .target(
-            name: "cxxConfig"
-        ),
-        .target(
-            name: "handlers",
-            dependencies: [
-                "cxxConfig"
-            ],
-            swiftSettings: [
-                .interoperabilityMode(.Cxx),
-            ],
-        ),
         // Custom CPP server implementation that uses Asio under the hood
         .target(
             name: "cxxLumengine",
             dependencies: [
-                "cxxAsio",
-                "cxxConfig",
-                "handlers"
+                "cxxAsio"
             ]
         ),
         .target(

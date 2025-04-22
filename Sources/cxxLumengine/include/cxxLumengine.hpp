@@ -3,6 +3,7 @@
 
 #include <cxxAsio.hpp>
 #include "workload.hpp"
+#include "handlers.hpp"
 #include "custom_error_code.hpp"
 #include "custom_terminate_handler.hpp"
 #include "swift_function_wrapper.hpp"

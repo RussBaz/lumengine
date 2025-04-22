@@ -2,12 +2,27 @@
 #define LE_TCP_HANDLER_HPP
 
 #include <cxxAsio.hpp>
-#include <cxxConfig.hpp>
-// #include <handlers-Swift.h>
+#include <swift/bridging>
 
 #include "custom_error_code.hpp"
 #include "swift_function_wrapper.hpp"
 #include "sparse_vector.hpp"
+
+#include "variant_wrapper.hpp"
+#include "buffer.hpp"
+
+class TcpSession;
+class TcpHandler;
+
+struct TCPReadCommand {};
+struct TCPWriteCommand {
+    Buffer buffer;
+};
+struct TCPCloseCommand {};
+using TCPCommand = std::variant<TCPReadCommand, TCPWriteCommand, TCPCloseCommand>;
+using TCPCommandVariant = VariantWrapper<TCPCommand>;
+using TcpSessionPtr = std::shared_ptr<TcpSession>;
+using TcpHandlerPtr = std::shared_ptr<TcpHandler>;
 
 struct TcpConfig {
     uint read_buffer_size { 16 * 1024 };

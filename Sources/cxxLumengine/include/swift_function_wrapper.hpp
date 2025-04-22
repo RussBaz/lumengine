@@ -5,8 +5,8 @@
 #include <string>
 
 // Forward declarations for Swift interop
-extern "C" void *pass_swift_closure_to_cpp(void * (*closure)(void *));
-extern "C" void release_swift_closure(void *closure);
+extern "C" void *pass_swift_closure_to_cpp(void* (*closure)(void *));
+extern "C" void release_swift_closure(void *context);
 
 // Error logging helper
 inline void log_error(const std::string &message) noexcept {

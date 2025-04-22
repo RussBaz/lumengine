@@ -1,4 +1,0 @@
-module cxxConfig {
-    umbrella header "cxxConfig.hpp"
-    export *
-}

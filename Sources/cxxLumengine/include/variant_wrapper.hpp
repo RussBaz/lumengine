@@ -1,5 +1,5 @@
-#ifndef LC_VARIANT_WRAPPER_HPP
-#define LC_VARIANT_WRAPPER_HPP
+#ifndef LE_VARIANT_WRAPPER_HPP
+#define LE_VARIANT_WRAPPER_HPP
 
 #include <optional>
 #include <variant>
@@ -47,4 +47,4 @@ public:
     }
 };
 
-#endif // LC_VARIANT_WRAPPER_HPP
+#endif // LE_VARIANT_WRAPPER_HPP

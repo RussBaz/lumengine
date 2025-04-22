@@ -1,5 +1,5 @@
-#ifndef LC_BUFFER_HPP
-#define LC_BUFFER_HPP
+#ifndef LE_BUFFER_HPP
+#define LE_BUFFER_HPP
 
 #include <cstddef>
 #include <string>
@@ -117,4 +117,4 @@ public:
     }
 };
 
-#endif // LC_BUFFER_HPP
+#endif // LE_BUFFER_HPP

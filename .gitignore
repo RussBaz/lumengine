@@ -8,3 +8,4 @@ DerivedData/
 .netrc
 .index-build
 .idea
+.build-cache
